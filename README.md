@@ -27,7 +27,7 @@
 3. 用 [首次定题指令](prompts/BOOTSTRAP.md) 提供真实课题、研究对象、baseline、数据和资源限制。未知内容保持未知。
 4. 讨论结束发送下面的固定指令，把输出的 Update 和独立文件草稿暂存到 inbox/；文件中保留最终目标路径，核对基线后再合并到正式目录。
 5. 本地使用 [Memory 同步指令](prompts/MEMORY_SYNC.md) 落实增量变化、核对引用并重新导出上下文。
-6. 独立任务满足 Ready 条件后，使用 [Codex 执行指令](prompts/CODEX_EXECUTE.md)。运行结束后使用 [结果复盘指令](prompts/RESULT_REVIEW.md)。
+6. 独立任务满足 Ready 条件后，使用 [Agent 执行指令](prompts/Agent_EXECUTE.md)。运行结束后使用 [结果复盘指令](prompts/RESULT_REVIEW.md)。
 
 固定结束指令：
 
@@ -43,14 +43,14 @@ flowchart TD
   B --> C[Memory 同步：核对基线、局部更新、保留历史]
   C --> D[Research Memory 当前版本]
   D --> E[独立 Agent Task]
-  E --> F[Codex：实现、测试、调试、实验]
+  E --> F[Agent：实现、测试、调试、实验]
   F --> G[Result 事实 + Implementation Report]
   G --> H[ChatGPT：解释、反证、下一实验]
   H --> B
   D --> A
 ```
 
-Memory 同步与工程执行是两个角色，可以由同一个本地 Codex 分两次完成。同步角色处理更新文档；工程角色接收明确的独立任务，Research Update 本身不是工程规格。
+Memory 同步与工程执行是两个角色，可以由同一个本地 Agent 分两次完成。同步角色处理更新文档；工程角色接收明确的独立任务，Research Update 本身不是工程规格。
 
 ## 辅助命令
 
@@ -78,7 +78,7 @@ python3 -m unittest discover -s tests -v
 
 本地文件是唯一权威副本，ChatGPT 上传文件是讨论快照。普通 ChatGPT 项目需上传或连接来源，不能据此假设它会自动写回本地目录。[OpenAI 官方项目文档](https://learn.chatgpt.com/zh-Hans/docs/projects?surface=app)
 
-`AGENTS.md` 指示 Codex 首先读取 State，然后读取 Task 的 Context；文件名本身不会自动完成共享。[OpenAI 官方 AGENTS.md 文档](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
+`AGENTS.md` 指示 Agent 首先读取 State，然后读取 Task 的 Context；文件名本身不会自动完成共享。[OpenAI 官方 AGENTS.md 文档](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 
 将来采用连接器或 MCP 时，保留相同的版本校验与写入协议。读取文件、拥有写权限、写入成功应分别验证。
 
