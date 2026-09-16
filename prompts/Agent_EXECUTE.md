@@ -1,4 +1,4 @@
-# Codex 执行指令
+# Agent 执行指令
 
 请执行我指定的 agent_tasks/TASK-XXX.md。
 
