@@ -7,7 +7,7 @@
 3. 结论必须和 Evidence 分离。
 4. 实验结果必须和 Interpretation 分离。
 5. Research Decision 必须留下历史记录。
-6. Codex 执行当前明确的 State 和 Task，不猜测研究意图。
+6. Agent 执行当前明确的 State 和 Task，不猜测研究意图。
 
 State 是当前采用的研究认识与行动依据，不是对科学真理的担保。它可以包含明确标注的假设、不确定性和已确定的工程约束。“正在检验 H1”不表示“H1 成立”。
 
